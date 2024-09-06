@@ -6,14 +6,17 @@ import { getTranslations } from 'next-intl/server'
  * See /messages/(locale)/meta/index.json for translations
  */
 
-export const generateMeta = async (page: string): Promise<Metadata | undefined> => {
-    const t = await getTranslations(`meta.${page}`)
+export const generateMeta = async (
+     page: string
+): Promise<Metadata | undefined> => {
+     const t = await getTranslations(`meta.${page}`)
 
-    if (!t) return
+     if (!t) return
 
-    return {
-        title: `${process.env.SITE_NAME} - ${t('title')}`,
-        description: `${process.env.SITE_NAME} - ${t('description')}`,
-        keywords: t('keywords'),
-    }
+     return {
+          title: `${process.env.SITE_NAME} - ${t('title')}`,
+          description: `${process.env.SITE_NAME} - ${t('description')}`,
+          keywords: t('keywords'),
+          //add more here for other wanted meta keys
+     }
 }

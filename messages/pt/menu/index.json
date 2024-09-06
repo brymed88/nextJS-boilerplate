@@ -1,5 +1,5 @@
 {
-    "home": "Lar",
-    "about": "Sobre",
-    "accountBtn": "{loggedIn, plural, =1 {Conta} other {Painel}}"
+     "home": "Lar",
+     "about": "Sobre",
+     "accountBtn": "{loggedIn, plural, =1 {Conta} other {Painel}}"
 }
