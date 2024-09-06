@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-.yarn/install-state.gz
+.env.local
 
 # testing
 /coverage
@@ -26,6 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -34,3 +35,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Docker volumes
+/.docker-volume

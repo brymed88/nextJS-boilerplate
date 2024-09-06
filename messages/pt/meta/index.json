@@ -1,0 +1,21 @@
+{
+    "home": {
+        "title": "Página inicial",
+        "description": "Esta é a página inicial",
+        "keywords": "home, homepage, minha casa"
+    },
+    "about": {
+        "title": "Sobre a página",
+        "description": "Esta é a página sobre",
+        "keywords": "sobre, sobre nós"
+    },
+    "auth": {
+        "title": "Página de autenticação",
+        "description": "Esta é a página de autenticação para autenticação do usuário",
+        "keywords": "autenticação, autenticação, conta"
+    },
+    "dashboard": {
+        "title": "Página do painel",
+        "description": "Esta é a página do painel após o login"
+    }
+}
