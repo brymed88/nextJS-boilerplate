@@ -1,4 +1,4 @@
-import LocaleChanger from '@/components/atoms/button/localeChanger'
+import LocaleChanger from '@/components/atoms/localeChanger'
 import { cn } from '@/lib/utils'
 import { Menu, XIcon } from 'lucide-react'
 import { PropsWithChildren, useState } from 'react'

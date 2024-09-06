@@ -1,4 +1,4 @@
-import LocaleChanger from '@/components/atoms/button/localeChanger'
+import LocaleChanger from '@/components/atoms/localeChanger'
 import { PropsWithChildren } from 'react'
 
 const DesktopMenuLayout = ({ children }: PropsWithChildren) => {
