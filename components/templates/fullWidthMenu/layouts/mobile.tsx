@@ -10,7 +10,7 @@ const MobileMenuLayout = ({ children }: PropsWithChildren) => {
           <>
                <div
                     className={cn(
-                         'absolute right-[-100%] top-10 flex w-full flex-col bg-indigo-700/95 p-4 pb-10 transition-all',
+                         'absolute right-[-100%] top-12 flex w-full flex-col bg-indigo-700 p-4 pb-10 transition-all',
                          menuToggled && 'right-0 shadow-md'
                     )}
                >

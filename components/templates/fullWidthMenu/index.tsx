@@ -1,8 +1,8 @@
 'use client'
 import Button from '@/components/atoms/button'
+import { Link } from '@/features/i18n/routing'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { useWindowScrollPositions } from '@/hooks/useWindowScrollPositions'
-import { Link } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
 import { Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -40,7 +40,7 @@ const FullWidthMenu = ({ hasSession }: MenuProps) => {
      return (
           <section
                className={cn(
-                    'fixed flex w-full justify-center bg-indigo-700 text-slate-200',
+                    'fixed flex w-full justify-center bg-indigo-700 text-slate-200 z-10',
                     scrollY > 20 && isDesktop && 'shadow-lg'
                )}
           >
@@ -71,10 +71,9 @@ const FullWidthMenu = ({ hasSession }: MenuProps) => {
                                         })}
                                    </Link>
                                    {hasSession && (
-                                        <Button
-                                             value={'Logout'}
-                                             className="w-36 rounded-md bg-red-500 p-3 px-4"
-                                        />
+                                        <Button className="w-36 rounded-md bg-red-500 p-3 px-4">
+                                             Logout
+                                        </Button>
                                    )}
                               </nav>
                          </MobileMenuLayout>

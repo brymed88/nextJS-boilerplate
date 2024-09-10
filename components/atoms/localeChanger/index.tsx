@@ -1,7 +1,8 @@
-import { locales } from '@/i18n/locales'
-import { usePathname, useRouter } from '@/i18n/routing'
+import { locales } from '@/features/i18n/locales'
+import { usePathname, useRouter } from '@/features/i18n/routing'
 import { cn } from '@/lib/utils'
 import { useLocale } from 'next-intl'
+import { useSearchParams } from 'next/navigation'
 type LocaleChangerProps = {
      className?: string
 }
@@ -9,9 +10,12 @@ const LocaleChanger = ({ className }: LocaleChangerProps) => {
      const router = useRouter()
      const pathName = usePathname()
      const locale = useLocale()
+     const params = useSearchParams()
 
      const changeUserLocale = (locale: (typeof locales)[number]) => {
-          locale && router.push(pathName, { locale: locale })
+          const newPath = pathName + (params ? `?${params.toString()}` : '')
+
+          locale && router.push(newPath, { locale: locale })
      }
 
      return (

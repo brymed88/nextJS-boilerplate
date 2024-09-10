@@ -1,0 +1,120 @@
+'use client'
+
+import Button from '@/components/atoms/button'
+import Label from '@/components/atoms/label'
+import { Link } from '@/features/i18n/routing'
+import { Handshake } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { SubmitHandler, useForm } from 'react-hook-form'
+type LoginInputs = {
+     email: string
+     password: string
+}
+
+const LoginStep = () => {
+     const t = useTranslations('pages.auth.login')
+
+     const {
+          register,
+          handleSubmit,
+          formState: { errors },
+     } = useForm<LoginInputs>()
+
+     const onSubmit: SubmitHandler<LoginInputs> = (data) => console.log(data)
+
+     return (
+          <div className="relative flex w-full flex-col items-center gap-6">
+               <Handshake size={45} className="stroke-blue-400" />
+               <span className="w-10/12 border-b border-slate-200" />
+
+               <div className="flex w-10/12 flex-col items-center gap-2 md:w-8/12">
+                    <h2 className="w-full text-center text-lg text-slate-500">
+                         {t('providerH2')}
+                    </h2>
+
+                    <Button
+                         className="w-full bg-slate-800 text-white"
+                         onClick={() => console.log('discord login')}
+                    >
+                         {t('providerDiscord')}
+                    </Button>
+                    <Button
+                         className="w-full bg-slate-800 text-white"
+                         onClick={() => console.log('google login')}
+                    >
+                         {t('providerGoogle')}
+                    </Button>
+                    <Button
+                         className="w-full bg-slate-800 text-white"
+                         onClick={() => console.log('LinkedIn login')}
+                    >
+                         {t('providerLinkedIn')}
+                    </Button>
+               </div>
+
+               <span className="w-10/12 border-b border-slate-200 py-1" />
+
+               <div className="flex w-full flex-col items-center gap-2">
+                    <h2 className="w-full text-center text-lg text-slate-500">
+                         {t('credentialsH2')}
+                    </h2>
+                    <form
+                         onSubmit={handleSubmit(onSubmit)}
+                         className="flex w-10/12 flex-col items-center justify-center md:w-8/12"
+                         noValidate
+                    >
+                         <Label
+                              value={t('emailAddressLabel')}
+                              className="w-full py-3 text-slate-700"
+                         />
+                         <input
+                              {...register('email', { required: true })}
+                              className="w-full rounded-md p-2 bg-slate-100"
+                         />
+                         {errors.email && (
+                              <span className="w-full py-2 text-red-500 text-sm">
+                                   {t('emailAddressError')}
+                              </span>
+                         )}
+
+                         <Label
+                              value={t('passwordLabel')}
+                              className="w-full py-3 text-slate-700"
+                         />
+                         <input
+                              {...register('password', { required: true })}
+                              className="w-full rounded-md p-2 bg-slate-100"
+                         />
+                         {errors.password && (
+                              <span className="w-full py-2 text-red-500 text-sm">
+                                   {t('passwordError')}
+                              </span>
+                         )}
+                         <div className="mt-6 flex w-full items-center justify-between gap-2">
+                              <Link
+                                   href="/auth?step=reset"
+                                   className="text-sky-600"
+                              >
+                                   {t('forgotPasswordLabel')}
+                              </Link>
+                              <Button className="bg-slate-800 text-white hover:bg-slate-700">
+                                   {t('loginBtnText')}
+                              </Button>
+                         </div>
+                    </form>
+               </div>
+               <span className="w-10/12 border-b border-slate-200 py-2" />
+               <p className="w-full text-center text-slate-500">
+                    {t('createAccountText')}
+                    <Link
+                         className="cursor-pointer pl-2 text-sky-400"
+                         href="/auth?step=signup"
+                    >
+                         {t('createAccountLink')}
+                    </Link>
+               </p>
+          </div>
+     )
+}
+
+export default LoginStep
