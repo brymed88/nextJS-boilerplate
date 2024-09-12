@@ -14,6 +14,8 @@ type MenuProps = {
      hasSession: boolean
 }
 
+//TODO: finish once session exists
+
 const FullWidthMenu = ({ hasSession }: MenuProps) => {
      const { scrollY } = useWindowScrollPositions()
      const { width } = useWindowDimensions()
@@ -40,7 +42,7 @@ const FullWidthMenu = ({ hasSession }: MenuProps) => {
      return (
           <section
                className={cn(
-                    'fixed flex w-full justify-center bg-indigo-700 text-slate-200 z-10',
+                    'fixed z-10 flex w-full justify-center bg-indigo-700 text-slate-200',
                     scrollY > 20 && isDesktop && 'shadow-lg'
                )}
           >

@@ -1,4 +1,4 @@
-import { locales } from '@/features/i18n/locales'
+import { locales } from '@/features/i18n/routing'
 import { usePathname, useRouter } from '@/features/i18n/routing'
 import { cn } from '@/lib/utils'
 import { useLocale } from 'next-intl'
@@ -22,13 +22,18 @@ const LocaleChanger = ({ className }: LocaleChangerProps) => {
           <select
                onChange={(e) => changeUserLocale(e.target.value)}
                defaultValue={locale}
+               data-testid="locale-changer-select"
                className={cn(
                     'cursor-pointer rounded-md bg-white p-2 text-slate-800',
                     className
                )}
           >
                {locales.map((locale) => (
-                    <option key={locale} value={locale}>
+                    <option
+                         key={locale}
+                         value={locale}
+                         data-testid={`locale-changer-option`}
+                    >
                          {locale}
                     </option>
                ))}

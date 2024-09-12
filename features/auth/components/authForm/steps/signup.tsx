@@ -1,28 +1,55 @@
 'use client'
 
 import Button from '@/components/atoms/button'
+import HookFormComponent from '@/components/atoms/hookForm'
+import HookFormInput from '@/components/atoms/hookFormInput'
 import Label from '@/components/atoms/label'
+import { signUp } from '@/features/auth/actions/sign-up'
+import type { SignUpData } from '@/features/auth/types'
 import { Link } from '@/features/i18n/routing'
 import { UsersRound } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useTransition } from 'react'
+import z from 'zod'
+const minPasswordLength = 4
 
-type SignupInputs = {
-     email: string
-     password: string
-     vpassword: string
-     accept: boolean
-}
+const SignupSchema = z
+     .object({
+          email: z.string().email({ message: 'fieldRequired' }),
+          password: z.string().min(minPasswordLength, {
+               message: `passwordErrorLength,${minPasswordLength}`,
+          }),
+          vpassword: z.string().min(minPasswordLength, {
+               message: `passwordErrorLength,${minPasswordLength}`,
+          }),
+          accept: z.literal(true),
+     })
+     .refine((data) => data.password === data.vpassword, {
+          message: 'passwordErrorMismatch',
+          path: ['vpassword'],
+     })
+
+type SignupSchemaType = z.infer<typeof SignupSchema>
 
 const SignupStep = () => {
      const t = useTranslations('pages.auth.signup')
-     const {
-          register,
-          handleSubmit,
-          formState: { errors },
-     } = useForm<SignupInputs>()
+     const [isLoading, startSignupTransition] = useTransition()
 
-     const onSubmit: SubmitHandler<SignupInputs> = (data) => console.log(data)
+     const onSubmit = (data: SignupSchemaType) =>
+          startSignupTransition(async () => {
+               console.log(data)
+               if (!data.email || !data.password) return //TODO: implement toast
+
+               const formData: SignUpData = {
+                    email: data.email,
+                    password: data.password,
+                    vPassword: data.vpassword,
+               }
+
+               const res = await signUp(formData)
+
+               console.log(res)
+          })
 
      return (
           <div className="relative flex w-full flex-col items-center gap-6">
@@ -33,52 +60,49 @@ const SignupStep = () => {
                     <h2 className="w-full text-center text-lg text-slate-500">
                          {t('signupH2')}
                     </h2>
-                    <form
-                         onSubmit={handleSubmit(onSubmit)}
-                         className="flex w-10/12 flex-col items-center justify-center md:w-8/12"
-                         noValidate
+                    <HookFormComponent
+                         zodSchema={SignupSchema}
+                         defaultValues={{
+                              email: '',
+                              password: '',
+                              vpassword: '',
+                              accept: undefined,
+                         }}
+                         submitCallback={onSubmit}
+                         className="flex w-10/12 flex-col items-center justify-center md:w-9/12"
                     >
                          <Label
                               value={t('emailAddressLabel')}
                               className="w-full py-3 text-slate-700"
                          />
-                         <input
-                              {...register('email', { required: true })}
-                              className="w-full rounded-md bg-slate-100 p-2"
-                         />
-                         {errors.email && (
-                              <span className="w-full py-2 text-sm text-red-500">
-                                   {t('emailAddressError')}
-                              </span>
-                         )}
+                         <HookFormInput name="email" />
 
                          <Label
                               value={t('passwordLabel')}
                               className="w-full py-3 text-slate-700"
                          />
-                         <input
-                              {...register('password', { required: true })}
-                              className="w-full rounded-md bg-slate-100 p-2"
-                         />
-                         {errors.email && (
-                              <span className="w-full py-2 text-sm text-red-500">
-                                   {t('passwordError')}
-                              </span>
-                         )}
+                         <HookFormInput name="password" type="password" />
 
                          <Label
                               value={t('vPasswordLabel')}
                               className="w-full py-3 text-slate-700"
                          />
-                         <input
-                              {...register('vpassword', { required: true })}
-                              className="w-full rounded-md bg-slate-100 p-2"
-                         />
-                         {errors.email && (
-                              <span className="w-full py-2 text-sm text-red-500">
-                                   {t('vPasswordError')}
-                              </span>
-                         )}
+                         <HookFormInput name="vpassword" type="password" />
+
+                         <span className="flex w-full items-center gap-3 pt-4">
+                              <HookFormInput
+                                   name="accept"
+                                   type="checkbox"
+                                   className="size-5"
+                              />
+                              <Link
+                                   href="/terms"
+                                   target="_blank"
+                                   className="cursor-pointer text-sky-600"
+                              >
+                                   {t('termsText')}
+                              </Link>
+                         </span>
 
                          <div className="mt-6 flex w-full items-center justify-between gap-2">
                               <Link
@@ -87,11 +111,14 @@ const SignupStep = () => {
                               >
                                    {t('backToLogin')}
                               </Link>
-                              <Button className="bg-slate-800 text-white hover:bg-slate-700">
+                              <Button
+                                   className="bg-slate-800 text-white hover:bg-slate-700"
+                                   isLoading={isLoading}
+                              >
                                    {t('createBtnText')}
                               </Button>
                          </div>
-                    </form>
+                    </HookFormComponent>
                </div>
           </div>
      )

@@ -18,7 +18,13 @@ const Button = ({
                className={cn('rounded-md bg-green-400 px-4 py-2', className)}
                {...props}
           >
-               {isLoading && <Loader2 size={16} className="animate-spin" />}
+               {isLoading && (
+                    <Loader2
+                         size={16}
+                         className="animate-spin"
+                         data-testid="loading-icon"
+                    />
+               )}
                {children}
           </button>
      )

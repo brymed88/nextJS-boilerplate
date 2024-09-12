@@ -1,0 +1,6 @@
+{
+     "fieldRequired": "Este campo é obrigatório",
+     "passwordErrorLength": "A string deve conter pelo menos {num} caractere(s)",
+     "passwordErrorMismatch": "As senhas não coincidem",
+     "acceptTermsError": "É necessário aceitar os termos"
+}

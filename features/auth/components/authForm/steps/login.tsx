@@ -1,26 +1,25 @@
 'use client'
 
 import Button from '@/components/atoms/button'
+import HookFormComponent from '@/components/atoms/hookForm'
+import HookFormInput from '@/components/atoms/hookFormInput'
 import Label from '@/components/atoms/label'
 import { Link } from '@/features/i18n/routing'
 import { Handshake } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { SubmitHandler, useForm } from 'react-hook-form'
-type LoginInputs = {
-     email: string
-     password: string
-}
+import { z } from 'zod'
+
+const LoginSchema = z.object({
+     email: z.string().email({ message: 'fieldRequired' }),
+     password: z.string().min(1, { message: 'fieldRequired' }),
+})
+
+type LoginSchemaType = z.infer<typeof LoginSchema>
 
 const LoginStep = () => {
      const t = useTranslations('pages.auth.login')
 
-     const {
-          register,
-          handleSubmit,
-          formState: { errors },
-     } = useForm<LoginInputs>()
-
-     const onSubmit: SubmitHandler<LoginInputs> = (data) => console.log(data)
+     const onSubmit = (data: LoginSchemaType) => console.log(data)
 
      return (
           <div className="relative flex w-full flex-col items-center gap-6">
@@ -58,38 +57,25 @@ const LoginStep = () => {
                     <h2 className="w-full text-center text-lg text-slate-500">
                          {t('credentialsH2')}
                     </h2>
-                    <form
-                         onSubmit={handleSubmit(onSubmit)}
-                         className="flex w-10/12 flex-col items-center justify-center md:w-8/12"
-                         noValidate
+                    <HookFormComponent
+                         zodSchema={LoginSchema}
+                         defaultValues={{ email: '', password: '' }}
+                         submitCallback={onSubmit}
+                         className="flex w-10/12 flex-col items-center justify-center md:w-9/12"
                     >
                          <Label
                               value={t('emailAddressLabel')}
                               className="w-full py-3 text-slate-700"
                          />
-                         <input
-                              {...register('email', { required: true })}
-                              className="w-full rounded-md p-2 bg-slate-100"
-                         />
-                         {errors.email && (
-                              <span className="w-full py-2 text-red-500 text-sm">
-                                   {t('emailAddressError')}
-                              </span>
-                         )}
+                         <HookFormInput name="email" />
 
                          <Label
                               value={t('passwordLabel')}
                               className="w-full py-3 text-slate-700"
                          />
-                         <input
-                              {...register('password', { required: true })}
-                              className="w-full rounded-md p-2 bg-slate-100"
-                         />
-                         {errors.password && (
-                              <span className="w-full py-2 text-red-500 text-sm">
-                                   {t('passwordError')}
-                              </span>
-                         )}
+
+                         <HookFormInput name="password" type="password" />
+
                          <div className="mt-6 flex w-full items-center justify-between gap-2">
                               <Link
                                    href="/auth?step=reset"
@@ -101,7 +87,7 @@ const LoginStep = () => {
                                    {t('loginBtnText')}
                               </Button>
                          </div>
-                    </form>
+                    </HookFormComponent>
                </div>
                <span className="w-10/12 border-b border-slate-200 py-2" />
                <p className="w-full text-center text-slate-500">

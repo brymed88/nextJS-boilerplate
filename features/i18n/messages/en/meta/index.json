@@ -17,5 +17,9 @@
      "dashboard": {
           "title": "Dashboard Page",
           "description": "This is the dashboard page post login"
+     },
+     "terms":{
+          "title":"Terms & Conditions",
+          "description":"Terms and Conditions"
      }
 }

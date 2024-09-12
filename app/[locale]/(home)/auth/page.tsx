@@ -16,7 +16,7 @@ const AuthPage = ({ searchParams }: AuthPageProps) => {
      const step = (
           !searchParams.step ? 'login'
           : authStepTypes.includes(searchParams.step) ? searchParams.step
-          : undefined) as AuthSteps
+          : 'login') as AuthSteps
 
      return (
           <section className="flex size-full justify-center md:pt-20">

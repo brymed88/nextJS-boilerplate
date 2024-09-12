@@ -1,6 +1,7 @@
 import { createSharedPathnamesNavigation } from 'next-intl/navigation'
 import { defineRouting } from 'next-intl/routing'
-import { locales } from './locales'
+
+export const locales = ['en', 'pt']
 
 export const routing = defineRouting({
      // A list of all locales that are supported

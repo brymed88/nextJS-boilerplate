@@ -11,3 +11,4 @@ NextJS Boiler is a minimalist boilerplate that includes the following features
 -    Responsive starter template
 -    Features folder with encapsulated
 -    react hook form
+-    ZOD

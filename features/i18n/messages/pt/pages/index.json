@@ -25,9 +25,7 @@
                "providerLinkedIn": "Faça login com o LinkedIn",
                "credentialsH2": "Faça login com credenciais",
                "emailAddressLabel": "Endereço de email",
-               "emailAddressError":"Este campo é obrigatório",
                "passwordLabel": "Senha",
-               "passwordError":"Este campo é obrigatório",
                "forgotPasswordLabel": "Esqueceu sua senha?",
                "loginBtnText": "Conecte-se",
                "createAccountText":"Sem conta,",
@@ -36,7 +34,6 @@
           "reset": {
                "resetH2": "Redefinir senha",
                "emailAddressLabel": "Endereço de email",
-               "emailAddressError": "Este campo é obrigatório",
                "resetBtnText": "Reiniciar",
                "backToLogin": "Voltar ao login"
           },
@@ -45,11 +42,10 @@
                "emailAddressLabel": "Endereço de email",
                "emailAddressError": "Este campo é obrigatório",
                "passwordLabel": "Senha",
-               "passwordError": "Este campo é obrigatório",
                "vPasswordLabel": "Verifique a senha",
-               "vPasswordError": "Este campo é obrigatório",
                "createBtnText": "Inscrever-se",
-               "backToLogin": "Voltar ao login"
+               "backToLogin": "Voltar ao login",
+               "termsText":"Aceite os termos e condições"
           }
      }
 }

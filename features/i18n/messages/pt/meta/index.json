@@ -17,5 +17,9 @@
      "dashboard": {
           "title": "Página do painel",
           "description": "Esta é a página do painel após o login"
+     },
+     "terms": {
+          "title": "Termos e Condições",
+          "description": "Termos e Condições"
      }
 }

@@ -17,6 +17,6 @@ export const generateMeta = async (
           title: `${process.env.SITE_NAME} - ${t('title')}`,
           description: `${process.env.SITE_NAME} - ${t('description')}`,
           keywords: t('keywords'),
-          //add more here for other wanted meta keys
+          //NOTE: add more here for other wanted meta keys
      }
 }

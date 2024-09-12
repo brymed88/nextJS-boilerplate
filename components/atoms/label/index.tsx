@@ -7,7 +7,7 @@ type LabelProps={
 
 const Label = ({value,className}:LabelProps) => {
   return (
-   <span className={cn('py-2',className)}>
+   <span className={cn('py-2',className)} data-testid={`label-${value}`}>
     {value}
    </span>
   )

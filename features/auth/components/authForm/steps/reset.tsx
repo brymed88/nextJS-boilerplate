@@ -1,28 +1,24 @@
 'use client'
 
 import Button from '@/components/atoms/button'
+import HookFormComponent from '@/components/atoms/hookForm'
+import HookFormInput from '@/components/atoms/hookFormInput'
 import Label from '@/components/atoms/label'
 import { Link } from '@/features/i18n/routing'
 import { CircleHelp } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useState, useTransition } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import z from 'zod'
 
-type ResetInputs = {
-     email: string
-}
+const ResetSchema = z.object({
+     email: z.string().email({ message: 'fieldRequired' }),
+})
+
+type ResetSchemaType = z.infer<typeof ResetSchema>
+
 const ResetStep = () => {
      const t = useTranslations('pages.auth.reset')
-     const {
-          register,
-          handleSubmit,
-          formState: { errors },
-     } = useForm<ResetInputs>()
 
-     const [isLoading,startResetTransition] = useTransition()
-     const [isSuccess,setIsSuccess] = useState(false)
-
-     const onSubmit: SubmitHandler<ResetInputs> = (data) => console.log(data)
+     const onSubmit = (data: ResetSchemaType) => console.log(data)
 
      return (
           <div className="relative flex w-full flex-col items-center gap-6">
@@ -33,24 +29,17 @@ const ResetStep = () => {
                     <h2 className="w-full text-center text-lg text-slate-500">
                          {t('resetH2')}
                     </h2>
-                    <form
-                         onSubmit={handleSubmit(onSubmit)}
-                         className="flex w-10/12 flex-col items-center justify-center md:w-8/12"
-                         noValidate
+                    <HookFormComponent
+                         zodSchema={ResetSchema}
+                         className="flex w-10/12 flex-col items-center justify-center md:w-9/12"
+                         defaultValues={{ email: '' }}
+                         submitCallback={onSubmit}
                     >
                          <Label
                               value={t('emailAddressLabel')}
                               className="w-full py-3 text-slate-700"
                          />
-                         <input
-                              {...register('email', { required: true })}
-                              className="w-full rounded-md bg-slate-100 p-2"
-                         />
-                         {errors.email && (
-                              <span className="w-full py-2 text-sm text-red-500">
-                                   {t('emailAddressError')}
-                              </span>
-                         )}
+                         <HookFormInput name="email" className="w-full" />
 
                          <div className="mt-6 flex w-full items-center justify-between gap-2">
                               <Link
@@ -63,7 +52,7 @@ const ResetStep = () => {
                                    {t('resetBtnText')}
                               </Button>
                          </div>
-                    </form>
+                    </HookFormComponent>
                </div>
           </div>
      )

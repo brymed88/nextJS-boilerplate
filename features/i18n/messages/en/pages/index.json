@@ -25,9 +25,7 @@
                "providerLinkedIn": "Sign in with LinkedIn",
                "credentialsH2": "Login with credentials",
                "emailAddressLabel": "Email address",
-               "emailAddressError": "This field is required",
                "passwordLabel": "Password",
-               "passwordError": "This field is required",
                "forgotPasswordLabel": "Forgot password?",
                "loginBtnText": "Login",
                "createAccountText": "No account,",
@@ -36,20 +34,17 @@
           "reset": {
                "resetH2": "Reset password",
                "emailAddressLabel": "Email address",
-               "emailAddressError": "This field is required",
                "resetBtnText": "Reset",
                "backToLogin": "Back to login"
           },
           "signup": {
                "signupH2": "Create an account",
                "emailAddressLabel": "Email address",
-               "emailAddressError": "This field is required",
                "passwordLabel": "Password",
-               "passwordError": "This field is required",
                "vPasswordLabel": "Verify password",
-               "vPasswordError": "This field is required",
                "createBtnText": "Sign up",
-               "backToLogin": "Back to login"
+               "backToLogin": "Back to login",
+               "termsText":"Accept terms & conditions"
           }
      }
 }
