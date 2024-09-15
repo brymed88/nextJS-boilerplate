@@ -1,6 +1,6 @@
 {
-    "fieldRequired":"This field is required",
-    "passwordErrorLength": "String must contain at least {num} character(s)",
-    "passwordErrorMismatch":"Passwords do not match",
-    "acceptTermsError":"Accepting terms is required"
+     "fieldRequired": "This field is required",
+     "passwordErrorLength": "String must contain at least {num} character(s)",
+     "passwordErrorMismatch": "Passwords do not match",
+     "acceptTermsError": "Accepting terms is required"
 }

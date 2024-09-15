@@ -26,7 +26,7 @@ describe('AuthForm Component Tests', () => {
           expect(screen.getByText('Reset password')).toBeDefined()
      })
      test('verify form should render', () => {
-        renderComponent('verify')
-        expect(screen.getByText('Verify step')).toBeDefined()
-   })
+          renderComponent('verify')
+          expect(screen.getByText('Verify step')).toBeDefined()
+     })
 })

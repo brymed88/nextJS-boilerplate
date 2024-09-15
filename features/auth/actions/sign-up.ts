@@ -19,10 +19,16 @@ const signUp = async (formData: AuthDataType) => {
           const userId = generateId(15)
 
           await prisma?.user.create({
-               data: { id: userId, email: formData.email, password_hash:hashedPassword },
+               data: {
+                    id: userId,
+                    email: formData.email,
+                    password_hash: hashedPassword,
+               },
           })
 
-          const session = await lucia.createSession(userId, {email:formData.email})
+          const session = await lucia.createSession(userId, {
+               email: formData.email,
+          })
           const sessionCookie = lucia.createSessionCookie(session.id)
 
           cookies().set(

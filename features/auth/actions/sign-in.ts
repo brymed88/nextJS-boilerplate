@@ -1,9 +1,9 @@
 'use server'
 
+import { redirect } from '@/features/i18n/routing'
 import { db } from '@/lib/db'
 import { lucia } from '@/lib/lucia'
 import { cookies } from 'next/headers'
-import { redirect } from '@/features/i18n/routing'
 import { Argon2id } from 'oslo/password'
 import { AuthDataType } from '../types'
 

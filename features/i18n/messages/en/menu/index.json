@@ -3,7 +3,7 @@
           "home": "Home",
           "about": "About",
           "accountBtn": "Account",
-          "loggedIn":"Dashboard"
+          "loggedIn": "Dashboard"
      },
      "dashboard": {
           "home": "Dashboard",

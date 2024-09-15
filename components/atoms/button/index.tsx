@@ -15,7 +15,10 @@ const Button = ({
 }: PropsWithChildren & React.ComponentProps<'button'> & ButtonProps) => {
      return (
           <button
-               className={cn('rounded-md bg-green-400 px-4 py-2', className)}
+               className={cn(
+                    'flex items-center gap-2 rounded-md bg-green-400 px-4 py-2',
+                    className
+               )}
                {...props}
           >
                {isLoading && (

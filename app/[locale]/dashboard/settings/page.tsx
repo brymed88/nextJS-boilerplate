@@ -1,11 +1,6 @@
-import React from 'react'
 //TODO:add translations
 const DashboardSettingsPage = () => {
-  return (
-    <div>
-      Settings Page
-    </div>
-  )
+     return <div className="text-4xl text-white">Settings Page</div>
 }
 
 export default DashboardSettingsPage

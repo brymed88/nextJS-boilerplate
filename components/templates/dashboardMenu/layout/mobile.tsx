@@ -1,5 +1,6 @@
 'use client'
 
+import LocaleChanger from '@/components/atoms/localeChanger'
 import LogoutBtn from '@/components/atoms/logoutBtn'
 import { Link, usePathname } from '@/features/i18n/routing'
 import { cn } from '@/lib/utils'
@@ -7,7 +8,6 @@ import { Menu, XIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 import { DashboardNavLinkType } from '../types'
-import LocaleChanger from '@/components/atoms/localeChanger'
 
 type MobileMenuProps = {
      navLinks: DashboardNavLinkType[]
@@ -76,11 +76,10 @@ const MobileDashboardMenu = ({ navLinks, profileImg }: MobileMenuProps) => {
                               </Link>
                          ))}
                     </div>
-                    <span className='flex gap-2 justify-center items-center'>
-                    <LogoutBtn />
-                    <LocaleChanger/>
+                    <span className="flex items-center justify-center gap-2">
+                         <LogoutBtn />
+                         <LocaleChanger />
                     </span>
-                   
                </div>
           </section>
      )

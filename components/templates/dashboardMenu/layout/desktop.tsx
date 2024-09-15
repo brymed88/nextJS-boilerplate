@@ -1,24 +1,20 @@
 'use client'
 
+import LocaleChanger from '@/components/atoms/localeChanger'
 import LogoutBtn from '@/components/atoms/logoutBtn'
+import { Link, usePathname } from '@/features/i18n/routing'
 import { cn } from '@/lib/utils'
 import { ChevronFirst } from 'lucide-react'
 import Image from 'next/image'
-import { Link } from '@/features/i18n/routing'
-import { usePathname } from '@/features/i18n/routing'
 import { useState } from 'react'
 import { DashboardNavLinkType } from '../types'
-import LocaleChanger from '@/components/atoms/localeChanger'
 
 type DesktopMenuProps = {
      navLinks: DashboardNavLinkType[]
      profileImg: string
 }
 
-const DesktopDashboardMenu = ({
-     navLinks,
-     profileImg,
-}: DesktopMenuProps) => {
+const DesktopDashboardMenu = ({ navLinks, profileImg }: DesktopMenuProps) => {
      const pathName = usePathname()
      const [desktopMenuOpen, setDesktopMenuOpen] = useState(true)
 
@@ -71,7 +67,10 @@ const DesktopDashboardMenu = ({
                     </div>
 
                     <span className="flex h-full w-10/12 flex-col items-center justify-between pt-12">
-                         <LogoutBtn condensed={!desktopMenuOpen} className='w-full justify-center'/>
+                         <LogoutBtn
+                              condensed={!desktopMenuOpen}
+                              className="w-full justify-center"
+                         />
                     </span>
                </div>
 
@@ -90,7 +89,9 @@ const DesktopDashboardMenu = ({
                          )}
                     />
                </span>
-               <LocaleChanger className={cn('mx-2 mb-4 w-12', desktopMenuOpen && 'ml-4')}/>
+               <LocaleChanger
+                    className={cn('mx-2 mb-4 w-12', desktopMenuOpen && 'ml-4')}
+               />
           </section>
      )
 }

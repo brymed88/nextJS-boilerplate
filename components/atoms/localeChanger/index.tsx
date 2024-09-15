@@ -1,5 +1,4 @@
-import { locales } from '@/features/i18n/routing'
-import { usePathname, useRouter } from '@/features/i18n/routing'
+import { locales, usePathname, useRouter } from '@/features/i18n/routing'
 import { cn } from '@/lib/utils'
 import { useLocale } from 'next-intl'
 import { useSearchParams } from 'next/navigation'
@@ -24,7 +23,7 @@ const LocaleChanger = ({ className }: LocaleChangerProps) => {
                defaultValue={locale}
                data-testid="locale-changer-select"
                className={cn(
-                    'cursor-pointer rounded-md bg-white p-2 text-slate-800',
+                    'cursor-pointer rounded-md bg-white p-2.5 text-slate-800',
                     className
                )}
           >

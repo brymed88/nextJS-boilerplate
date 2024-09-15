@@ -92,7 +92,10 @@ const LoginStep = () => {
                               >
                                    {t('forgotPasswordLabel')}
                               </Link>
-                              <Button className="bg-slate-800 text-white hover:bg-slate-700">
+                              <Button
+                                   className="bg-slate-800 text-white hover:bg-slate-700"
+                                   isLoading={isPending}
+                              >
                                    {t('loginBtnText')}
                               </Button>
                          </div>

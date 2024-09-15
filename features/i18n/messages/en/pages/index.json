@@ -44,7 +44,7 @@
                "vPasswordLabel": "Verify password",
                "createBtnText": "Sign up",
                "backToLogin": "Back to login",
-               "termsText":"Accept terms & conditions"
+               "termsText": "Accept terms & conditions"
           }
      }
 }

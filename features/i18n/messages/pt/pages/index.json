@@ -28,8 +28,8 @@
                "passwordLabel": "Senha",
                "forgotPasswordLabel": "Esqueceu sua senha?",
                "loginBtnText": "Conecte-se",
-               "createAccountText":"Sem conta,",
-               "createAccountLink":"Criar um?"
+               "createAccountText": "Sem conta,",
+               "createAccountLink": "Criar um?"
           },
           "reset": {
                "resetH2": "Redefinir senha",
@@ -45,7 +45,7 @@
                "vPasswordLabel": "Verifique a senha",
                "createBtnText": "Inscrever-se",
                "backToLogin": "Voltar ao login",
-               "termsText":"Aceite os termos e condições"
+               "termsText": "Aceite os termos e condições"
           }
      }
 }
