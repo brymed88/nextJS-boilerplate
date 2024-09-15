@@ -1,15 +1,18 @@
+import DashboardMenu from '@/components/templates/dashboardMenu'
 import FullWidthMenu from '@/components/templates/fullWidthMenu'
+import { getAuth } from '@/features/auth/queries/get-auth'
+import { redirect } from '@/features/i18n/routing'
 import { PropsWithChildren } from 'react'
 
 export default async function DashboardLayout({ children }: PropsWithChildren) {
-     //return here if not authorized?
+     const { user } = await getAuth()
+     if (!user) redirect('/auth')
+
      return (
-          <main className="flex size-full flex-col">
-               <FullWidthMenu hasSession={false} />
-               <section className="mt-10 flex min-h-screen w-full flex-col items-center bg-slate-700 py-8">
-                    <p className="bg-orange-500 p-6">Dashboard Layout</p>
-                    {children}
-               </section>
-          </main>
+          <main className="size-screen flex flex-col md:min-h-full md:flex-row">
+          <DashboardMenu />
+
+          <section className="flex min-h-screen w-full flex-col items-center bg-slate-700 py-8">{children}</section>
+      </main>
      )
 }

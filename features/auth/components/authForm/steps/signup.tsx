@@ -5,12 +5,13 @@ import HookFormComponent from '@/components/atoms/hookForm'
 import HookFormInput from '@/components/atoms/hookFormInput'
 import Label from '@/components/atoms/label'
 import { signUp } from '@/features/auth/actions/sign-up'
-import type { SignUpData } from '@/features/auth/types'
+import type { AuthDataType } from '@/features/auth/types'
 import { Link } from '@/features/i18n/routing'
 import { UsersRound } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import z from 'zod'
+
 const minPasswordLength = 4
 
 const SignupSchema = z
@@ -37,10 +38,9 @@ const SignupStep = () => {
 
      const onSubmit = (data: SignupSchemaType) =>
           startSignupTransition(async () => {
-               console.log(data)
                if (!data.email || !data.password) return //TODO: implement toast
 
-               const formData: SignUpData = {
+               const formData: AuthDataType = {
                     email: data.email,
                     password: data.password,
                     vPassword: data.vpassword,

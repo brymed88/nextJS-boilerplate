@@ -1,5 +1,15 @@
 {
-     "home": "Lar",
-     "about": "Sobre",
-     "accountBtn": "{loggedIn, plural, =1 {Conta} other {Painel}}"
+     "main": {
+          "home": "Lar",
+          "about": "Sobre",
+          "accountBtn": "Conta",
+          "loggedIn":"Painel"
+     },
+     "dashboard": {
+          "home": "Painel",
+          "profile": "Perfil",
+          "billing": "Cobrança",
+          "settings": "Configurações de Conta"
+     },
+     "logoutBtn": "Sair"
 }

@@ -4,9 +4,11 @@ import Button from '@/components/atoms/button'
 import HookFormComponent from '@/components/atoms/hookForm'
 import HookFormInput from '@/components/atoms/hookFormInput'
 import Label from '@/components/atoms/label'
+import { signIn } from '@/features/auth/actions/sign-in'
 import { Link } from '@/features/i18n/routing'
 import { Handshake } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useTransition } from 'react'
 import { z } from 'zod'
 
 const LoginSchema = z.object({
@@ -18,8 +20,15 @@ type LoginSchemaType = z.infer<typeof LoginSchema>
 
 const LoginStep = () => {
      const t = useTranslations('pages.auth.login')
+     const [isPending, startLoginTransition] = useTransition()
+     const onSubmit = (data: LoginSchemaType) =>
+          startLoginTransition(async () => {
+               if (!data.email || !data.password) return //show toast
 
-     const onSubmit = (data: LoginSchemaType) => console.log(data)
+               const res = await signIn(data)
+
+               console.log(res)
+          })
 
      return (
           <div className="relative flex w-full flex-col items-center gap-6">

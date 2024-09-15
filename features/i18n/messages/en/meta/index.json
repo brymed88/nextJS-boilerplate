@@ -16,10 +16,12 @@
      },
      "dashboard": {
           "title": "Dashboard Page",
-          "description": "This is the dashboard page post login"
+          "description": "This is the dashboard page post login",
+          "keywords": ""
      },
-     "terms":{
-          "title":"Terms & Conditions",
-          "description":"Terms and Conditions"
+     "terms": {
+          "title": "Terms & Conditions",
+          "description": "Terms and Conditions",
+          "keywords": ""
      }
 }

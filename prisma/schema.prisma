@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+//Change below line to DB of choice
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String    @id
+  sessions        Session[]
+  firstName       String?
+  lastName        String?
+  email           String    @unique
+  password_hash  String
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  userId    String
+  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
+}
