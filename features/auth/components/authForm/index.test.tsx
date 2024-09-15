@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import IntlMockProvider from '@/__mocks__/intlProvider'
 import { render, screen } from '@testing-library/react'
 import AuthForm from '.'
-import { AuthSteps } from './types'
+import { AuthSteps } from '../../types'
 
 const renderComponent = async (step?: AuthSteps) => {
      render(

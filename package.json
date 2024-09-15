@@ -9,7 +9,8 @@
           "start": "next start",
           "prettier": "prettier --write .",
           "lint": "npx tsc && next lint",
-          "test": "vitest"
+          "test": "vitest",
+          "coverage": "vitest run --coverage"
      },
      "dependencies": {
           "@hookform/resolvers": "^3.9.0",
@@ -35,6 +36,7 @@
           "@types/react": "^18",
           "@types/react-dom": "^18",
           "@vitejs/plugin-react": "^4.3.1",
+          "@vitest/coverage-v8": "^2.1.1",
           "autoprefixer": "^10.4.20",
           "eslint": "^8",
           "eslint-config-next": "14.2.7",

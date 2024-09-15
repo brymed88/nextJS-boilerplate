@@ -33,6 +33,4 @@ describe('Locale Changer Component Tests', () => {
 
           expect((select as HTMLSelectElement).value).toBe('pt')
      })
-
-     //NOTE: not mocking select change and router.push
 })
