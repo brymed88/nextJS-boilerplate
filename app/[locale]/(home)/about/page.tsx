@@ -6,7 +6,7 @@ const AboutPage = () => {
      const t = useTranslations('pages.about')
 
      const siteName = process.env.SITE_NAME || ''
-     console.log(siteName)
+
      return (
           <section className="flex w-full flex-col items-center justify-center py-12">
                <div className="flex max-w-[1200px] flex-col px-4">

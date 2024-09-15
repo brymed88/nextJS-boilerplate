@@ -42,7 +42,7 @@ const DesktopDashboardMenu = ({ navLinks, profileImg }: DesktopMenuProps) => {
                          </Link>
                     </span>
 
-                    <div className="mt-4 flex w-full flex-col border-y border-y-slate-700 py-6">
+                    <div className="mt-4 flex w-full grow flex-col border-y border-y-slate-700 py-6">
                          {navLinks?.map((navItem) => (
                               <Link
                                    href={navItem.url}
@@ -65,13 +65,6 @@ const DesktopDashboardMenu = ({ navLinks, profileImg }: DesktopMenuProps) => {
                               </Link>
                          ))}
                     </div>
-
-                    <span className="flex h-full w-10/12 flex-col items-center justify-between pt-12">
-                         <LogoutBtn
-                              condensed={!desktopMenuOpen}
-                              className="w-full justify-center"
-                         />
-                    </span>
                </div>
 
                <span
@@ -89,9 +82,18 @@ const DesktopDashboardMenu = ({ navLinks, profileImg }: DesktopMenuProps) => {
                          )}
                     />
                </span>
-               <LocaleChanger
-                    className={cn('mx-2 mb-4 w-12', desktopMenuOpen && 'ml-4')}
-               />
+               <span
+                    className={cn(
+                         'my-6 flex w-10/12 items-center justify-center gap-4 self-center',
+                         !desktopMenuOpen && 'flex-col'
+                    )}
+               >
+                    <LogoutBtn
+                         condensed={!desktopMenuOpen}
+                         className="w-full justify-center"
+                    />
+                    <LocaleChanger className="w-full" dark />
+               </span>
           </section>
      )
 }

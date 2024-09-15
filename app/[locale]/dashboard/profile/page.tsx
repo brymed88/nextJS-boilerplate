@@ -1,6 +1,8 @@
-//TODO:add translations
+import { useTranslations } from 'next-intl'
+
 const DashboardProfilePage = () => {
-     return <div className="text-4xl text-white">Profile Page</div>
+     const t = useTranslations('pages.dashboard.profile')
+     return <div className="text-4xl text-white">{t('title')}</div>
 }
 
 export default DashboardProfilePage

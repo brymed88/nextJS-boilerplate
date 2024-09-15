@@ -2,10 +2,13 @@ import { locales, usePathname, useRouter } from '@/features/i18n/routing'
 import { cn } from '@/lib/utils'
 import { useLocale } from 'next-intl'
 import { useSearchParams } from 'next/navigation'
+
 type LocaleChangerProps = {
      className?: string
+     dark?: boolean
 }
-const LocaleChanger = ({ className }: LocaleChangerProps) => {
+
+const LocaleChanger = ({ className, dark = false }: LocaleChangerProps) => {
      const router = useRouter()
      const pathName = usePathname()
      const locale = useLocale()
@@ -23,8 +26,9 @@ const LocaleChanger = ({ className }: LocaleChangerProps) => {
                defaultValue={locale}
                data-testid="locale-changer-select"
                className={cn(
-                    'cursor-pointer rounded-md bg-white p-2.5 text-slate-800',
-                    className
+                    'cursor-pointer rounded-md bg-slate-300 p-2.5 text-slate-600',
+                    className,
+                    dark && 'bg-slate-600 text-slate-200'
                )}
           >
                {locales.map((locale) => (

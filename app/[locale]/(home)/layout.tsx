@@ -5,7 +5,6 @@ import { PropsWithChildren } from 'react'
 
 export default async function HomeLayout({ children }: PropsWithChildren) {
      const { user } = await getAuth()
-
      return (
           <main className="flex size-full flex-col items-center">
                <FullWidthMenu hasSession={!!user} />

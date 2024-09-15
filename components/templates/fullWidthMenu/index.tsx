@@ -13,8 +13,6 @@ type MenuProps = {
      hasSession: boolean
 }
 
-//TODO: finish once session exists
-
 const FullWidthMenu = ({ hasSession }: MenuProps) => {
      const { scrollY } = useWindowScrollPositions()
      const { width } = useWindowDimensions()

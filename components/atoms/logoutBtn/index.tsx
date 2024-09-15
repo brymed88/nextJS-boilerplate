@@ -19,12 +19,13 @@ const LogoutBtn = ({ condensed = false, className }: LogoutBtnProps) => {
           <Button
                onClick={logout}
                className={cn(
-                    'flex items-center bg-red-600 text-white hover:bg-red-500',
-                    className
+                    'flex items-center bg-red-800 text-white hover:bg-red-700',
+                    className,
+                    condensed && 'py-3'
                )}
           >
                {!condensed ?
-                    <span>{t('logoutBtn')}</span>
+                    <>{t('logoutBtn')}</>
                :    condensed && <LogOut size={16} data-testid="logout-icon" />}
           </Button>
      )

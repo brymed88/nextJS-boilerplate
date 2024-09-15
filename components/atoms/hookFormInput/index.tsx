@@ -4,6 +4,7 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { HTMLInputTypeAttribute, useState } from 'react'
 import { RegisterOptions, useFormContext } from 'react-hook-form'
+
 type FormInputProps = {
      name: string
      className?: string
@@ -26,11 +27,6 @@ const HookFormInput = ({
           register,
           formState: { errors },
      } = useFormContext()
-
-     const minLength =
-          errors[name] &&
-          type === 'password' &&
-          (errors[name].message as string).split(',')[1]
 
      const translateError = () => {
           if (!errors[name]) return

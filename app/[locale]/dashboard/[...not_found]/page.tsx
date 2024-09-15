@@ -1,12 +1,13 @@
 import { Ghost } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
-//TODO:add translations
 const NotFoundDashboard = () => {
+     const t = useTranslations('pages.404')
      return (
-          <section className="absolute top-[30%] flex flex-col items-center justify-center gap-4 text-slate-200">
-               <Ghost size={140} className="stroke-slate-200" />
-               <p className="text-8xl">404</p>
-               <h1 className="text-3xl">Page not found</h1>
+          <section className="flex min-h-full flex-col items-center justify-center gap-4 py-40 text-slate-400">
+               <Ghost size={140} className="stroke-slate-400" />
+               <p className="text-8xl">{t('title')}</p>
+               <h1 className="text-3xl">{t('message')}</h1>
           </section>
      )
 }

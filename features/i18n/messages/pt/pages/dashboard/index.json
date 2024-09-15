@@ -1,0 +1,14 @@
+{
+     "dashboard": {
+          "title": "Painel"
+     },
+     "profile": {
+          "title": "Perfil"
+     },
+     "billing": {
+          "title": "Cobrança"
+     },
+     "settings": {
+          "title": "Página de configurações"
+     }
+}

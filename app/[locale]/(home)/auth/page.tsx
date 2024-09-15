@@ -1,8 +1,5 @@
 import AuthForm from '@/features/auth/components/authForm'
-import {
-     AuthSteps,
-     authStepTypes,
-} from '@/features/auth/components/authForm/types'
+import { AuthSteps, authStepTypes } from '@/features/auth/types'
 import { generateMeta } from '@/lib/generateMeta'
 
 export const generateMetadata = async () => await generateMeta('auth')
@@ -12,7 +9,6 @@ type AuthPageProps = {
 }
 
 const AuthPage = ({ searchParams }: AuthPageProps) => {
-     //Gaurd for incoming step
      const step = (
           !searchParams.step ? 'login'
           : authStepTypes.includes(searchParams.step) ? searchParams.step

@@ -1,6 +1,8 @@
-//TODO:add translations
+import { useTranslations } from 'next-intl'
+
 const DashboardBillingPage = () => {
-     return <div className="text-4xl text-white">Billing Page</div>
+     const t = useTranslations('pages.dashboard.billing')
+     return <div className="text-4xl text-white">{t('title')}</div>
 }
 
 export default DashboardBillingPage

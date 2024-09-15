@@ -56,7 +56,7 @@ const SignupStep = () => {
                <UsersRound size={45} className="stroke-blue-400" />
                <span className="w-10/12 border-b border-slate-200" />
 
-               <div className="flex w-full flex-col items-center gap-2">
+               <div className="flex w-11/12 flex-col items-center gap-2">
                     <h2 className="w-full text-center text-lg text-slate-500">
                          {t('signupH2')}
                     </h2>

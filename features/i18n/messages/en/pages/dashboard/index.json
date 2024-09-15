@@ -1,0 +1,14 @@
+{
+     "dashboard": {
+          "title": "Dashboard"
+     },
+     "profile": {
+          "title": "Profile"
+     },
+     "billing": {
+          "title": "Billing"
+     },
+     "settings": {
+          "title": "Settings Page"
+     }
+}

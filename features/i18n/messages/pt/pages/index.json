@@ -17,6 +17,10 @@
           "par4": "O pedaço padrão do Lorem Ipsum usado desde 1500 é reproduzido abaixo para os interessados. As seções 1.10.32 e 1.10.33 de 'de Finibus Bonorum et Malorum' de Cícero também são reproduzidas em sua forma original exata, acompanhadas por versões em inglês da tradução de 1914 por H. Rackham.",
           "par5": "Há muitas variações de passagens do Lorem Ipsum disponíveis, mas a maioria sofreu alguma alteração, por humor injetado ou palavras aleatórias que não parecem nem um pouco críveis. Se você for usar uma passagem do Lorem Ipsum, precisa ter certeza de que não há nada embaraçoso escondido no meio do texto. Todos os geradores de Lorem Ipsum na Internet tendem a repetir pedaços predefinidos conforme necessário, tornando este o primeiro gerador verdadeiro na Internet. Ele usa um dicionário de mais de 200 palavras latinas, combinado com um punhado de estruturas de frases modelo, para gerar Lorem Ipsum que parece razoável. O Lorem Ipsum gerado é, portanto, sempre livre de repetições, humor injetado ou palavras não características, etc."
      },
+     "404": {
+          "title": "404",
+          "message": "Página não encontrada"
+     },
      "auth": {
           "login": {
                "providerH2": "Faça login com o provedor",

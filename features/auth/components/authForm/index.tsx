@@ -1,12 +1,13 @@
+import { AuthSteps } from '../../types'
 import LoginStep from './steps/login'
 import ResetStep from './steps/reset'
 import SignupStep from './steps/signup'
 import VerifyStep from './steps/verify'
-import { AuthSteps } from './types'
 
 type AuthFormProps = {
      step?: AuthSteps
 }
+
 const AuthForm = ({ step }: AuthFormProps) => {
      return (
           <div className="flex w-full px-4 py-8 md:max-w-[500px] md:rounded-lg md:shadow-lg">
