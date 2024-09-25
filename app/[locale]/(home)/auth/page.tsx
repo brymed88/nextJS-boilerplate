@@ -10,13 +10,20 @@ type AuthPageProps = {
 
 const AuthPage = ({ searchParams }: AuthPageProps) => {
      const step = (
-          !searchParams.step ? 'login'
+          searchParams.code ? 'verify'
+          : !searchParams.step ? 'login'
           : authStepTypes.includes(searchParams.step) ? searchParams.step
           : 'login') as AuthSteps
 
+     const verifyCode = searchParams.code
+
      return (
           <section className="flex size-full justify-center md:pt-20">
-               <AuthForm step={step} />
+               <AuthForm
+                    step={step}
+                    verifyCode={verifyCode}
+                    type={searchParams.type}
+               />
           </section>
      )
 }

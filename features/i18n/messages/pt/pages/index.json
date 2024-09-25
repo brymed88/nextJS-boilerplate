@@ -22,6 +22,13 @@
           "message": "Página não encontrada"
      },
      "auth": {
+          "checkEmail": {
+               "title": "E-mail de verificação",
+               "paraOne": "Você está quase lá! Enviamos um e-mail de verificação para o seu endereço de e-mail.",
+               "paraTwo": "Basta clicar no link desse e-mail para verificar. Caso não o veja, talvez seja necessário verificar sua pasta de spam.",
+               "help": "Precisar de ajuda?",
+               "helpLink": "Contate-nos"
+          },
           "login": {
                "providerH2": "Faça login com o provedor",
                "providerDiscord": "Faça login com Discord",
@@ -36,9 +43,9 @@
                "createAccountLink": "Criar um?"
           },
           "reset": {
-               "resetH2": "Redefinir senha",
+               "resetH2": "Esqueceu sua senha",
                "emailAddressLabel": "Endereço de email",
-               "resetBtnText": "Reiniciar",
+               "resetBtnText": "Redefinir senha",
                "backToLogin": "Voltar ao login"
           },
           "signup": {
@@ -50,6 +57,23 @@
                "createBtnText": "Inscrever-se",
                "backToLogin": "Voltar ao login",
                "termsText": "Aceite os termos e condições"
+          },
+          "resetPassword": {
+               "signupH2": "Digite a nova senha",
+               "passwordLabel": "Senha",
+               "vPasswordLabel": "Verifique a senha",
+               "resetBtnText": "Reiniciar",
+               "successMsg": "Alteração de senha realizada com sucesso, faça login usando sua nova senha!",
+               "failMsg": "Alteração de senha sem sucesso, tente novamente ou entre em contato com o suporte!",
+               "returnBtn": "Voltar ao login",
+               "invalidProcess": "Processo inválido detectado"
+          },
+          "verify": {
+               "verifyH2": "Verifique sua conta",
+               "processingVerification": "Processando verificação de conta...",
+               "successVerification": "Sua conta foi verificada! Selecione o link abaixo para...",
+               "failedVerification": "A verificação falhou. Efetue login novamente para gerar um novo link de verificação de e-mail.",
+               "returnBtn": "Retornar ao login"
           }
      }
 }

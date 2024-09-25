@@ -2,8 +2,17 @@ import { describe, expect, test } from 'vitest'
 
 import IntlMockProvider from '@/__mocks__/intlProvider'
 import { render, screen } from '@testing-library/react'
+import { vi } from 'vitest'
 import AuthForm from '.'
 import { AuthSteps } from '../../types'
+
+vi.mock('@/features/i18n/routing', async () => {
+     const mod = await vi.importActual('@/features/i18n/routing')
+     return {
+          ...mod,
+          useRouter: () => {},
+     }
+})
 
 const renderComponent = async (step?: AuthSteps) => {
      render(
@@ -27,6 +36,10 @@ describe('AuthForm Component Tests', () => {
      })
      test('verify form should render', () => {
           renderComponent('verify')
-          expect(screen.getByText('Verify step')).toBeDefined()
+          expect(screen.getByText('Verify your account')).toBeDefined()
+     })
+     test('passwordReset form render without userId - should show invalid', () => {
+          renderComponent('passwordReset')
+          expect(screen.getByText('Invalid process detected'))
      })
 })

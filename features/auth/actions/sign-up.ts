@@ -1,46 +1,65 @@
 'use server'
-import { redirect } from '@/features/i18n/routing'
-import { lucia } from '@/lib/lucia'
-import { generateId } from 'lucia'
-import { cookies } from 'next/headers'
+import { SendVerifyEmail } from '@/features/email/resend'
+import { db } from '@/lib/db'
+import { ResponseHandler } from '@/lib/utils'
+import { generateIdFromEntropySize } from 'lucia'
+import { createDate, TimeSpan } from 'oslo'
 import { Argon2id } from 'oslo/password'
+import z from 'zod'
 import { AuthDataType } from '../types'
 
+const emailSchema = z.string().email({ message: 'Invalid email' })
+
 const signUp = async (formData: AuthDataType) => {
-     if (!formData.email || !formData.password || !formData.vPassword)
-          throw new Error('invalid data')
+     console.log(formData)
 
-     if (formData.password !== formData.vPassword)
-          throw new Error('Passwords do not match')
+     const { email, password, vPassword } = formData
 
-     //TODO: add functionality for email verification
+     if (!email || !password || !vPassword || password !== vPassword)
+          return ResponseHandler('credential mismatch', true)
+
      try {
-          const hashedPassword = await new Argon2id().hash(formData.password)
-          const userId = generateId(15)
+          emailSchema.parse(email) //validate email address
 
-          await prisma?.user.create({
+          const existingUser = await db.user.findUnique({
+               where: { email: email },
+          })
+
+          if (existingUser) return ResponseHandler('existing user', true)
+
+          const hashedPassword = await new Argon2id().hash(password)
+          const userId = generateIdFromEntropySize(10) // 16 chars long
+          const tokenId = generateIdFromEntropySize(10) //16 chars long
+
+          const createUser = await db.user.create({
                data: {
                     id: userId,
-                    email: formData.email,
+                    email: email,
                     password_hash: hashedPassword,
+                    Verification_Token: {
+                         create: {
+                              id: tokenId,
+                              expires_at: createDate(new TimeSpan(1, 'd')),
+                         },
+                    },
                },
           })
 
-          const session = await lucia.createSession(userId, {
-               email: formData.email,
-          })
-          const sessionCookie = lucia.createSessionCookie(session.id)
+          if (!createUser) return ResponseHandler('failed to create user', true)
 
-          cookies().set(
-               sessionCookie.name,
-               sessionCookie.value,
-               sessionCookie.attributes
-          )
+          const sendVerificationEmail = await SendVerifyEmail({
+               userEmail: createUser.email,
+               verifyLink: `${process.env.NEXT_PUBLIC_SITE_URL}/auth?step=verify&code=${tokenId}`,
+          })
+
+          if (!sendVerificationEmail)
+               return ResponseHandler('failed to send verification email', true)
+
+          return ResponseHandler('success', false)
      } catch (err) {
           console.log(err)
+          return ResponseHandler('critical error', true)
      }
-
-     redirect('/dashboard')
 }
 
 export { signUp }

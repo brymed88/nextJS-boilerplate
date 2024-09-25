@@ -6,7 +6,7 @@ import HookFormInput from '@/components/atoms/hookFormInput'
 import Label from '@/components/atoms/label'
 import { signUp } from '@/features/auth/actions/sign-up'
 import type { AuthDataType } from '@/features/auth/types'
-import { Link } from '@/features/i18n/routing'
+import { Link, useRouter } from '@/features/i18n/routing'
 import { UsersRound } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
@@ -34,11 +34,12 @@ type SignupSchemaType = z.infer<typeof SignupSchema>
 
 const SignupStep = () => {
      const t = useTranslations('pages.auth.signup')
+     const router = useRouter()
      const [isLoading, startSignupTransition] = useTransition()
 
      const onSubmit = (data: SignupSchemaType) =>
           startSignupTransition(async () => {
-               if (!data.email || !data.password) return //TODO: implement toast
+               if (!data.email || !data.password) return //toast?
 
                const formData: AuthDataType = {
                     email: data.email,
@@ -48,7 +49,12 @@ const SignupStep = () => {
 
                const res = await signUp(formData)
 
-               console.log(res)
+               if (res?.hasError) {
+                    console.log(res.data) //toast?
+                    return
+               }
+
+               router.push('/auth?step=checkEmail')
           })
 
      return (
@@ -89,7 +95,7 @@ const SignupStep = () => {
                          />
                          <HookFormInput name="vpassword" type="password" />
 
-                         <span className="flex w-full items-center gap-3 pt-4">
+                         <span className="flex w-full items-center gap-3 pt-6">
                               <HookFormInput
                                    name="accept"
                                    type="checkbox"

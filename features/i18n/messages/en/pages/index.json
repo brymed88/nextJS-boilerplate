@@ -22,6 +22,13 @@
           "message": "Page not found"
      },
      "auth": {
+          "checkEmail": {
+               "title": "Verification Email",
+               "paraOne": "You're almost there! We have sent a verification email to your email address.",
+               "paraTwo": "Just click on the link in that email to verify. If you don't see it , you may need to check your spam folder.",
+               "help": "Need help?",
+               "helpLink": "Contact us"
+          },
           "login": {
                "providerH2": "Login with provider",
                "providerDiscord": "Sign in with Discord",
@@ -36,9 +43,9 @@
                "createAccountLink": "Create one?"
           },
           "reset": {
-               "resetH2": "Reset password",
+               "resetH2": "Forgot password",
                "emailAddressLabel": "Email address",
-               "resetBtnText": "Reset",
+               "resetBtnText": "Reset password",
                "backToLogin": "Back to login"
           },
           "signup": {
@@ -49,6 +56,23 @@
                "createBtnText": "Sign up",
                "backToLogin": "Back to login",
                "termsText": "Accept terms & conditions"
+          },
+          "resetPassword": {
+               "signupH2": "Enter new password",
+               "passwordLabel": "Password",
+               "vPasswordLabel": "Verify password",
+               "resetBtnText": "Reset",
+               "successMsg": "Password change successful, please login using your new password!",
+               "failMsg": "Password change unsuccessful, please try again or contact support!",
+               "returnBtn": "Back to login",
+               "invalidProcess": "Invalid process detected"
+          },
+          "verify": {
+               "verifyH2": "Verify your account",
+               "processingVerification": "Processing account verification...",
+               "successVerification": "Your account has been verified! Please select the link below to...",
+               "failedVerification": "Verification failed, please login once more to generate a new email verification link.",
+               "returnBtn": "Return to login"
           }
      }
 }

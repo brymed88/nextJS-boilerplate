@@ -29,6 +29,7 @@ const FullWidthMenu = ({ hasSession }: MenuProps) => {
                <header className="flex h-10 w-full max-w-[1200px] items-center gap-8 px-6 py-8">
                     <Image src="/next.svg" height={60} width={60} alt="logo" />
                     <span className="grow" />
+
                     {isDesktop === undefined && (
                          <div className="mt-[-10px] flex h-1 items-center justify-center gap-2 text-white">
                               <span className="animate-pulse text-2xl delay-0 duration-1000">

@@ -4,9 +4,11 @@ import Button from '@/components/atoms/button'
 import HookFormComponent from '@/components/atoms/hookForm'
 import HookFormInput from '@/components/atoms/hookFormInput'
 import Label from '@/components/atoms/label'
-import { Link } from '@/features/i18n/routing'
+import { reset } from '@/features/auth/actions/reset'
+import { Link, useRouter } from '@/features/i18n/routing'
 import { CircleHelp } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useTransition } from 'react'
 import z from 'zod'
 
 const ResetSchema = z.object({
@@ -17,8 +19,18 @@ type ResetSchemaType = z.infer<typeof ResetSchema>
 
 const ResetStep = () => {
      const t = useTranslations('pages.auth.reset')
+     const [isPending, startResetTransition] = useTransition()
+     const router = useRouter()
 
-     const onSubmit = (data: ResetSchemaType) => console.log(data)
+     const onSubmit = (data: ResetSchemaType) =>
+          startResetTransition(async () => {
+               const res = await reset({ email: data.email })
+
+               if (res.hasError) return //TODO: alternatively show toast / state for failure
+
+               if (res?.data === 'verify-email-sent')
+                    router.push('/auth?step=checkEmail')
+          })
 
      return (
           <div className="relative flex w-full flex-col items-center gap-6">
@@ -48,7 +60,10 @@ const ResetStep = () => {
                               >
                                    {t('backToLogin')}
                               </Link>
-                              <Button className="bg-slate-800 text-white hover:bg-slate-700">
+                              <Button
+                                   className="bg-slate-800 text-white hover:bg-slate-700"
+                                   isLoading={isPending}
+                              >
                                    {t('resetBtnText')}
                               </Button>
                          </div>

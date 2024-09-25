@@ -31,6 +31,7 @@ export const loadI18nTranslations = (
                          .split(path.sep)
                          .filter((parent) => parent !== 'index.json')
                     const filePath = path.join(absolutePath, file)
+
                     const fileTranslations = JSON.parse(
                          fs.readFileSync(filePath, 'utf-8')
                     )

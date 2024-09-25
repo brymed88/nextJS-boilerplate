@@ -1,9 +1,28 @@
 export type AuthDataType = {
-     email: string
-     password: string
+     email?: string
+     password?: string
      vPassword?: string
+     userId?: string
 }
 
-export type AuthSteps = 'login' | 'signup' | 'verify' | 'reset' | undefined
+export type AccountVerificationType = {
+     code: string
+}
 
-export const authStepTypes = ['login', 'signup', 'verify', 'reset']
+export type AuthSteps =
+     | 'login'
+     | 'signup'
+     | 'verify'
+     | 'reset'
+     | 'checkEmail'
+     | 'passwordReset'
+     | undefined
+
+export const authStepTypes = [
+     'login',
+     'signup',
+     'verify',
+     'reset',
+     'checkEmail',
+     'passwordReset',
+]

@@ -5,7 +5,7 @@ export const generateMetadata = async () => await generateMeta('about')
 const AboutPage = () => {
      const t = useTranslations('pages.about')
 
-     const siteName = process.env.SITE_NAME || ''
+     const siteName = process.env.NEXT_PUBLIC_SITE_NAME || ''
 
      return (
           <section className="flex w-full flex-col items-center justify-center py-12">
