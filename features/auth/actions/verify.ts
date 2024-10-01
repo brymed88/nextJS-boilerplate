@@ -38,7 +38,7 @@ const verify = async (verifyCode: string, type?: string | undefined) => {
           if (!updateUser)
                return ResponseHandler('error updating user verified', true)
 
-          return ResponseHandler('success', false)
+          return ResponseHandler('success')
      } catch (err) {
           console.log(err)
           return ResponseHandler('critical error', true)

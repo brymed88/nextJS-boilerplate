@@ -53,7 +53,7 @@ const signIn = async (formData: AuthDataType) => {
                          true
                     )
 
-               return ResponseHandler('verify-email-sent', false)
+               return ResponseHandler('verify-email-sent')
           }
 
           const validPassword = await new Argon2id().verify(

@@ -5,12 +5,17 @@ import { db } from '@/lib/db'
 import { ResponseHandler } from '@/lib/utils'
 import { generateIdFromEntropySize } from 'lucia'
 import { createDate, TimeSpan } from 'oslo'
+import z from 'zod'
 import { AuthDataType } from '../types'
+
+const emailSchema = z.string().email({ message: 'Invalid email' })
 
 const reset = async (formData: AuthDataType) => {
      if (!formData.email) return ResponseHandler('invalid data', true)
 
      try {
+          emailSchema.parse(formData.email) //validate email address
+
           const user = await db.user.findUnique({
                where: { email: formData.email },
           })
@@ -45,7 +50,7 @@ const reset = async (formData: AuthDataType) => {
           if (!sendVerificationEmail)
                return ResponseHandler('failed to send verification email', true)
 
-          return ResponseHandler('verify-email-sent', false)
+          return ResponseHandler('verify-email-sent')
      } catch (error) {
           console.log(error)
           return ResponseHandler('critical error', true)

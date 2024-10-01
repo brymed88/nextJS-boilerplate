@@ -11,6 +11,7 @@ type VerifyStepProps = {
      type?: string
      setUserId: (userId: string) => void
 }
+
 const VerifyStep = ({ verifyCode, type, setUserId }: VerifyStepProps) => {
      const t = useTranslations('pages.auth.verify')
      const [isVerifying, startVerificationTransition] = useTransition()

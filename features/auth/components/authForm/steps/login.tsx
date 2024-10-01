@@ -10,6 +10,7 @@ import { Handshake } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import { z } from 'zod'
+
 const LoginSchema = z.object({
      email: z.string().email({ message: 'fieldRequired' }),
      password: z.string().min(1, { message: 'fieldRequired' }),
@@ -39,7 +40,7 @@ const LoginStep = () => {
      return (
           <div className="relative flex w-full flex-col items-center gap-6">
                <Handshake size={45} className="stroke-blue-400" />
-               <span className="w-10/12 border-b border-slate-200" />
+               {/* <span className="w-10/12 border-b border-slate-200" />
 
                <div className="flex w-full flex-col items-center gap-2 md:w-8/12">
                     <h2 className="w-full text-center text-lg text-slate-500">
@@ -64,7 +65,7 @@ const LoginStep = () => {
                     >
                          {t('providerLinkedIn')}
                     </Button>
-               </div>
+               </div> */}
 
                <span className="w-10/12 border-b border-slate-200 py-1" />
 

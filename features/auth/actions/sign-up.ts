@@ -55,7 +55,7 @@ const signUp = async (formData: AuthDataType) => {
           if (!sendVerificationEmail)
                return ResponseHandler('failed to send verification email', true)
 
-          return ResponseHandler('success', false)
+          return ResponseHandler('success')
      } catch (err) {
           console.log(err)
           return ResponseHandler('critical error', true)

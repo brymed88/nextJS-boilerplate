@@ -40,7 +40,7 @@ const resetPassword = async (formData: AuthDataType) => {
           if (!sendVerificationEmail)
                return ResponseHandler('failed to send verification email', true)
 
-          return ResponseHandler('email-sent', false)
+          return ResponseHandler('email-sent')
      } catch (error) {
           console.log(error)
           return ResponseHandler('critical error', true)
