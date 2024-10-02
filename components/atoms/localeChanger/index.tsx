@@ -17,7 +17,7 @@ const LocaleChanger = ({ className, dark = false }: LocaleChangerProps) => {
      const changeUserLocale = (locale: (typeof locales)[number]) => {
           const newPath = pathName + (params ? `?${params.toString()}` : '')
 
-          locale && router.push(newPath, { locale: locale })
+          if (locale) router.push(newPath, { locale: locale })
      }
 
      return (

@@ -38,7 +38,9 @@ export const getAuth = cache(
                          sessionCookie.attributes
                     )
                }
-          } catch {}
+          } catch (e) {
+               console.log(e)
+          }
           return result
      }
 )

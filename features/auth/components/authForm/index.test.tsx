@@ -24,7 +24,7 @@ const renderComponent = async (step?: AuthSteps) => {
 describe('AuthForm Component Tests', () => {
      test('form exists on default step - login', () => {
           renderComponent()
-          expect(screen.getByText('Login with provider')).toBeDefined()
+          expect(screen.getByText('Login with credentials')).toBeDefined()
      })
      test('signup form should render', () => {
           renderComponent('signup')

@@ -1,6 +1,6 @@
 'use server'
 
-import { SendVerifyEmail } from '@/features/email/resend'
+import { SendVerifyEmail } from '@/features/email/utils'
 import { db } from '@/lib/db'
 import { lucia } from '@/lib/lucia'
 import { ResponseHandler } from '@/lib/utils'

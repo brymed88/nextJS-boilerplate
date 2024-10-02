@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const addNestedProperty = (obj: { [key: string]: any }, keys: string[]) => {
      let current = obj
 

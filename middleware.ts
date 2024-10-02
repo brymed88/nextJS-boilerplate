@@ -8,7 +8,6 @@ export default function middleware(req: NextRequest) {
      const { pathname } = req.nextUrl
 
      //Custom matcher for i18N routing
-     console.log(pathname)
      const shouldHandle =
           pathname === '/' ||
           // new RegExp(`^/(${locales.join('|')})(/.*)?$`).test(

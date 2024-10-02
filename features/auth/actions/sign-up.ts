@@ -1,5 +1,5 @@
 'use server'
-import { SendVerifyEmail } from '@/features/email/resend'
+import { SendVerifyEmail } from '@/features/email/utils'
 import { db } from '@/lib/db'
 import { ResponseHandler } from '@/lib/utils'
 import { generateIdFromEntropySize } from 'lucia'

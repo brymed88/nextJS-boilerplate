@@ -1,5 +1,5 @@
 import { Hr, Img } from '@react-email/components'
-export default function EmailHeaderTemplate() {
+const Header = () => {
      return (
           <>
                <Img
@@ -11,3 +11,5 @@ export default function EmailHeaderTemplate() {
           </>
      )
 }
+
+export default Header

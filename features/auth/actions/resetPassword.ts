@@ -1,6 +1,6 @@
 'use server'
 
-import { SendResetNotificationEmail } from '@/features/email/resend'
+import { SendResetNotificationEmail } from '@/features/email/utils'
 import { db } from '@/lib/db'
 import { ResponseHandler } from '@/lib/utils'
 import { Argon2id } from 'oslo/password'

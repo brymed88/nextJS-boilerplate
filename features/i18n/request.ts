@@ -8,7 +8,7 @@ import { locales } from './routing'
 export default getRequestConfig(async () => {
      const locale = cookies().get('NEXT_LOCALE')?.value || 'en'
 
-     if (!locales.includes(locale as any)) notFound()
+     if (!locales.includes(locale)) notFound()
 
      const messages = loadI18nTranslations('/features/i18n/messages/', locale)
 

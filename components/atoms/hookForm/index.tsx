@@ -17,11 +17,12 @@ const HookFormComponent = ({
      submitCallback,
      ...props
 }: PropsWithChildren &
+     // eslint-disable-next-line @typescript-eslint/no-explicit-any
      FormComponentProps<any> &
      React.FormHTMLAttributes<HTMLFormElement>) => {
      const methods = useForm<typeof zodSchema>({
           resolver: zodResolver(zodSchema),
-          defaultValues: zodSchema,
+          defaultValues: defaultValues,
      })
      const { isValid } = methods.formState
 

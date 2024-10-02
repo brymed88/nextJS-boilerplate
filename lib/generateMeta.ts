@@ -17,6 +17,7 @@ export const generateMeta = async (
           title: `${process.env.NEXT_PUBLIC_SITE_NAME} - ${t('title')}`,
           description: `${process.env.NEXT_PUBLIC_SITE_NAME} - ${t('description')}`,
           keywords: t('keywords'),
-          //NOTE: add more here for other wanted meta keys
+          //NOTE: Additional fields available
+          //see documentation : https://nextjs.org/docs/app/api-reference/functions/generate-metadata
      }
 }

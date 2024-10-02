@@ -1,9 +1,9 @@
 'use server'
 
+import { ResponseHandler } from '@/lib/utils'
 import { ReactElement } from 'react'
 import { Resend } from 'resend'
 import { ResendEmailType } from '../types'
-
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export const SendEmail = async ({
@@ -19,10 +19,11 @@ export const SendEmail = async ({
                react: bodyTemplate as ReactElement,
           })
 
-          if (error) return Response.json({ error })
+          if (error) return ResponseHandler(error.message, true)
 
-          return Response.json({ data })
+          return ResponseHandler({ id: data?.id || '', msg: 'success' })
      } catch (error) {
-          return Response.json({ error })
+          console.log(error)
+          return ResponseHandler('critical email error', true)
      }
 }

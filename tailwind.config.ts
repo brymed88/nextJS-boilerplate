@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'tailwindcss'
 
-const config: Config = {
+export default {
      content: [
           './components/**/*.{ts,tsx}',
           './app/**/*.{ts,tsx,mjs}',
@@ -9,10 +10,5 @@ const config: Config = {
      theme: {
           extend: {},
      },
-     plugins: [
-          require('tailwindcss-animate'),
-          require('tailwindcss'),
-          require('autoprefixer'),
-     ],
-}
-export default config
+     plugins: [require('tailwindcss'), require('autoprefixer')],
+} satisfies Config

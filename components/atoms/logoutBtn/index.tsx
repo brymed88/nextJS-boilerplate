@@ -11,13 +11,9 @@ type LogoutBtnProps = {
 const LogoutBtn = ({ condensed = false, className }: LogoutBtnProps) => {
      const t = useTranslations('menu')
 
-     const logout = async () => {
-          const res = await signOut()
-     }
-
      return (
           <Button
-               onClick={logout}
+               onClick={signOut}
                className={cn(
                     'flex items-center bg-red-800 text-white hover:bg-red-700',
                     className,

@@ -12,7 +12,14 @@
           "test": "dotenv -e .env.development -- vitest",
           "coverage": "vitest run --coverage",
           "emailDev": "dotenv -e .env.development -- email dev --dir ./features/email/templates",
-          "emailProd": "dotenv -e .env.production -- email dev --dir ./features/email/templates"
+          "emailProd": "dotenv -e .env.production -- email dev --dir ./features/email/templates",
+          "prepare": "husky install"
+     },
+     "lint-staged": {
+          "*.{ts,tsx}": [
+               "prettier --write",
+               "eslint --max-warnings 0 ."
+          ]
      },
      "dependencies": {
           "@hookform/resolvers": "^3.9.0",
@@ -33,9 +40,11 @@
           "zod": "^3.23.8"
      },
      "devDependencies": {
+          "@eslint/js": "^9.11.1",
           "@testing-library/dom": "^10.4.0",
           "@testing-library/react": "^16.0.1",
           "@testing-library/user-event": "^14.5.2",
+          "@types/eslint__js": "^8.42.3",
           "@types/node": "^20.16.10",
           "@types/react": "^18.3.10",
           "@types/react-dom": "^18.3.0",
@@ -44,7 +53,9 @@
           "autoprefixer": "^10.4.20",
           "eslint": "^8.57.1",
           "eslint-config-next": "14.2.7",
+          "husky": "^9.1.6",
           "jsdom": "^25.0.1",
+          "lint-staged": "^15.2.10",
           "postcss": "^8.4.47",
           "prettier": "^3.3.3",
           "prettier-plugin-organize-imports": "^4.1.0",
@@ -52,9 +63,9 @@
           "prisma": "^5.20.0",
           "react-email": "3.0.1",
           "tailwindcss": "^3.4.13",
-          "tailwindcss-animate": "^1.0.7",
           "ts-node": "^10.9.2",
           "typescript": "^5.6.2",
+          "typescript-eslint": "^8.8.0",
           "vitest": "^2.0.5"
      }
 }
