@@ -9,7 +9,7 @@ import { Link, useRouter } from '@/features/i18n/routing'
 import { CircleHelp } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
-import z from 'zod'
+import { z } from 'zod'
 
 const ResetSchema = z.object({
      email: z.string().email({ message: 'fieldRequired' }),

@@ -8,11 +8,13 @@
           "build": "next build",
           "start": "next start",
           "prettier": "prettier --write .",
-          "lint": "npx tsc && next lint",
+          "lint": "npx tsc && eslint",
           "test": "dotenv -e .env.development -- vitest",
-          "coverage": "vitest run --coverage",
-          "emailDev": "dotenv -e .env.development -- email dev --dir ./features/email/templates",
-          "emailProd": "dotenv -e .env.production -- email dev --dir ./features/email/templates",
+          "coverage": "dotenv -e .env.development -- vitest run --coverage",
+          "email-dev": "dotenv -e .env.development -- email dev --dir ./features/email/templates",
+          "email-prod": "dotenv -e .env.production -- email dev --dir ./features/email/templates",
+          "dbMigrateDev": "dotenv -e .env.development -- npx prisma migrate dev",
+          "dbMigratePrd": "dotenv -e .env.production -- npx prisma migrate deploy",
           "prepare": "husky install"
      },
      "lint-staged": {

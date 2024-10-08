@@ -21,8 +21,8 @@ const LogoutBtn = ({ condensed = false, className }: LogoutBtnProps) => {
                )}
           >
                {!condensed ?
-                    <>{t('logoutBtn')}</>
-               :    condensed && <LogOut size={16} data-testid="logout-icon" />}
+                    t('logoutBtn')
+               :    <LogOut size={16} data-testid="logout-icon" />}
           </Button>
      )
 }

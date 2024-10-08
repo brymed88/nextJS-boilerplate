@@ -10,10 +10,6 @@ export default function middleware(req: NextRequest) {
      //Custom matcher for i18N routing
      const shouldHandle =
           pathname === '/' ||
-          // new RegExp(`^/(${locales.join('|')})(/.*)?$`).test(
-          //      req.nextUrl.pathname
-          // ) ||
-          //TODO: keep in case of unknown failure
           new RegExp('/((?!api|_next|_vercel|.*\\..*).*)').test(
                req.nextUrl.pathname
           ) //

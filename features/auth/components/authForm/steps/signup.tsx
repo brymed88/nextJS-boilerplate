@@ -10,7 +10,7 @@ import { Link, useRouter } from '@/features/i18n/routing'
 import { UsersRound } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
-import z from 'zod'
+import { z } from 'zod'
 
 const minPasswordLength = 4
 

@@ -28,7 +28,6 @@ const resetPassword = async (formData: AuthDataType) => {
                     password_hash: hashedPassword,
                },
           })
-          //TODO: add new table for account related logging such as changing password etc..
 
           if (!updateUser)
                return ResponseHandler('failed to update user password', true)

@@ -42,4 +42,8 @@ describe('AuthForm Component Tests', () => {
           renderComponent('passwordReset')
           expect(screen.getByText('Invalid process detected'))
      })
+     test('Email Sent Notice form render', () => {
+          renderComponent('checkEmail')
+          expect(screen.getByText('Verification Email'))
+     })
 })

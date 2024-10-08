@@ -5,7 +5,7 @@ import { db } from '@/lib/db'
 import { ResponseHandler } from '@/lib/utils'
 import { generateIdFromEntropySize } from 'lucia'
 import { createDate, TimeSpan } from 'oslo'
-import z from 'zod'
+import { z } from 'zod'
 import { AuthDataType } from '../types'
 
 const emailSchema = z.string().email({ message: 'Invalid email' })

@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server'
 
 /*
  * Generates page Meta data with site name included and translated values
- * See /messages/(locale)/meta/index.json for translations
+ * See /features/i18n/messages/(locale)/meta/index.json for translations
  */
 
 export const generateMeta = async (

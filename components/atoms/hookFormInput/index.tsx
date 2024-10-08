@@ -70,19 +70,17 @@ const HookFormInput = ({
                          </span>
                     )}
                </div>
-          :    <>
-                    <input
-                         className={cn(
-                              'size-5 border-2',
-                              className,
-                              errors[name] && 'appearance-none border-red-400'
-                         )}
-                         type="checkbox"
-                         data-testid={`form-input-${name}`}
-                         {...register(name, options)}
-                         {...props}
-                    />
-               </>
+          :    <input
+                    className={cn(
+                         'size-5 border-2',
+                         className,
+                         errors[name] && 'appearance-none border-red-400'
+                    )}
+                    type="checkbox"
+                    data-testid={`form-input-${name}`}
+                    {...register(name, options)}
+                    {...props}
+               />
 }
 
 export default HookFormInput

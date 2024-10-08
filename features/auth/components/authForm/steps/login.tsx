@@ -40,32 +40,6 @@ const LoginStep = () => {
      return (
           <div className="relative flex w-full flex-col items-center gap-6">
                <Handshake size={45} className="stroke-blue-400" />
-               {/* <span className="w-10/12 border-b border-slate-200" />
-
-               <div className="flex w-full flex-col items-center gap-2 md:w-8/12">
-                    <h2 className="w-full text-center text-lg text-slate-500">
-                         {t('providerH2')}
-                    </h2>
-
-                    <Button
-                         className="w-full justify-center bg-slate-800 text-white"
-                         onClick={() => console.log('discord login')}
-                    >
-                         {t('providerDiscord')}
-                    </Button>
-                    <Button
-                         className="w-full justify-center bg-slate-800 text-white"
-                         onClick={() => console.log('google login')}
-                    >
-                         {t('providerGoogle')}
-                    </Button>
-                    <Button
-                         className="w-full justify-center bg-slate-800 text-white"
-                         onClick={() => console.log('LinkedIn login')}
-                    >
-                         {t('providerLinkedIn')}
-                    </Button>
-               </div> */}
 
                <span className="w-10/12 border-b border-slate-200 py-1" />
 

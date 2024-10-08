@@ -16,5 +16,5 @@ export const ResponseHandler = (
      data: DataMessageType,
      error?: boolean
 ): ResponseType => {
-     return { hasError: error ? true : false, data: data }
+     return { hasError: !!error, data: data }
 }

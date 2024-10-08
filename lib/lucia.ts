@@ -11,8 +11,7 @@ export const lucia = new Lucia(adapter, {
           name: 'session',
           expires: false,
           attributes: {
-               // set to `true` when using HTTPS
-               secure: process.env.NODE_ENV === 'production',
+               secure: process.env.NODE_ENV === 'production', // `true` when using HTTPS
           },
      },
      getUserAttributes: (attributes) => {
